@@ -1,0 +1,89 @@
+// ==========================================
+// == FRAMER RESPONSIVE GRID
+// == AUTHOR: CLAUDE MYBURGH
+// == URL: http://designbycode.co.za
+// ==========================================
+
+@keyframes comeIn
+  0%
+    transform: translate3d(-50%,-300%,0)
+
+  100%
+    transform: translate3d(-50%,0,0)
+
+
+
+
+// .overlay, .modal
+//   display: none
+
+.modal
+    position: fixed
+    +radius
+    width: 98%
+    min-height: 300px
+    background: #fff
+    display: flex
+    flex-direction: column
+    flex-wrap: wrap
+    justify-content: space-between
+    top: 50px
+    left: 50%
+    transform: translate3d(-50%,-300%,0)
+    z-index: 25
+
+    &__sm
+      max-width: 300px
+
+    &__md
+      max-width: 500px
+
+    &__lg
+      max-width: 750px
+
+
+    &__header
+      padding: $padding
+      border: solid 1px $mute-border
+
+    &__body
+      padding: $padding
+
+    &__footer
+      padding: $padding
+      border-top: 1px $mute-border solid
+      background: $mute-background
+
+    &__close
+      position: absolute
+      z-index: 2
+      font-size: 28px
+      line-height: 1
+      display: block
+      width: 28px
+      text-align: center
+      border-radius: 3px
+      cursor: pointer
+      right: $padding
+      top: $padding
+
+
+
+.has__modal
+
+
+.modal__overlay
+  position: fixed
+  display: block
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background: rgba(#ededed, 0.8)
+  z-index: 20
+  // pointer-events: none
+
+
+.modal
+  box-shadow: rgba(#000, 0.5) 0 10px 30px
+  animation: comeIn 0.35s cubic-bezier(0.35, 0.74, 0.41, 1.41) forwards

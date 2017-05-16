@@ -1,0 +1,36 @@
+// @import "normalize"
+@import "vendor/main"
+@import "fonts/main"
+@import "functions/main"
+@import "mixins/main"
+@import "components/main"
+@import "helper-styles/main"
+@import "admin/main"
+
+
+*
+  box-sizing: border-box
+
+body
+  position: relative
+  background: $main-background
+  color: #3a3a3a
+  font-family: 'Raleway', sans-serif
+  line-height: $global__lineheight
+  font-size: $global__font__size
+
+
+.wrapper
+  +makeWrapper
+
+
+.row
+  +makeRow
+
+.flex
+  display: flex
+  flex-wrap: wrap
+
+//  make columns
+
++makeColumns

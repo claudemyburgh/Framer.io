@@ -1,0 +1,53 @@
+// ==========================================
+// == FRAMER RESPONSIVE GRID
+// == AUTHOR: CLAUDE MYBURGH
+// == URL: http://designbycode.co.za
+// ==========================================
+
+.btn,
+
+  +makeButton
+
+  $_button_colors: (default: $mute-background)
+  $_button_colors: map-merge($_button_colors, $_color_set)
+
+  @each $key, $value in $_button_colors
+    &--#{$key}
+      background: $value
+      border: solid 1px $value
+      @if lightness($value) > 60%
+        color: darken($value, 35%)
+      @else
+        color: #fff
+
+      &:hover
+        background: lighten($value, 5%)
+        +shadow
+        @if lightness($value) > 50%
+          color: darken($value, 50%)
+        @else
+          color: #fff
+
+
+
+
+  &--xs
+    padding: 1px 4px
+  &--sm
+    padding: 3px 8px
+  &--md
+    padding: 6px 16px
+  &--lg
+    padding: 9px 24px
+  &--xl
+    padding: 12px 48px
+
+  &--disabled
+    // pointer-events: none
+    background: $mute-background
+    color: darken($mute-background, 10%)
+    @extend .selectable__false--cursor
+    cursor: not-allowed
+    &:hover
+      background: $mute-background
+      color: darken($mute-background, 10%)

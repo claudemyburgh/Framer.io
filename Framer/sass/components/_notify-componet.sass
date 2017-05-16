@@ -1,0 +1,53 @@
+
+
+.notify
+  position: relative
+  +radius
+  +shadow
+  +shadow('text', lighten($mute-background, 15%) 0 1px 2px)
+  padding: $padding (($padding * 2) + 28px) $padding $padding
+  background: $mute-background
+  border: solid 1px darken($mute-background, 15%)
+  color: darken($mute-background, 35%)
+  transition: opacity 0.3s ease-in-out
+  @extend .selectable__false
+  margin:
+    top: $padding
+    bottom: $padding
+
+  &__close
+    position: absolute
+    right: $padding
+    top: $padding
+    // float: right
+    font-size: 14px
+    line-height: 1
+    display: block
+    width: 28px
+    height: 28px
+    text-align: center
+    border-radius: 3px
+    cursor: pointer
+    &::after
+      position: absolute
+      font-family: "Framer-icon"
+      content: $unicode-close
+      width: 100%
+      height: 100%
+      line-height: 28px
+      left: 0
+      top: 0
+    &:hover
+      background: #fff
+
+    &__closed
+      opacity: 0
+
+
+  @each $key, $value in $_nofiy_colors
+    &__#{$key}
+
+      background: $value
+      color: darken($value, 35%)
+      border: solid 1px darken($value, 15%)
+      text-shadow: lighten($value, 15%) 0 1px 2px

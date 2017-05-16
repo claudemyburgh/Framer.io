@@ -1,0 +1,49 @@
+
+.media 
+	margin-top: $padding
+
+	
+	border-radius: $global__radius
+
+	&--default 
+		background: #fff
+		border: solid 1px $mute-border
+		padding: $padding
+
+	&__left,
+	&__right,
+	&__body
+		display: table-cell
+		vertical-align: top	
+		+is--mobile 
+			display: table-row
+
+	&__left 
+		padding-right: $padding
+
+	&__right
+		padding-left: $padding	
+
+	&__body 
+		zoom: 1
+		overflow: hidden
+
+	&__image
+		max-width: none
+
+	&__object
+		display: block
+
+	&__title 
+		font-weight: bold
+		// font-size: 168%
+
+	&--middle
+		vertical-align: middle !important
+
+	&--bottom
+		vertical-align: bottom !important
+
+	&__list 
+		list-style: none
+		padding-left: 0	

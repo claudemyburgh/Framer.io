@@ -1,0 +1,396 @@
+
+@font-face {
+	font-family: "Framer-icon";
+	src: url('#{$font-path}/Framer-Font/Framer-icon.eot');
+	src: url('#{$font-path}/Framer-Font/Framer-icon.eot?#iefix') format('eot'),
+		url('#{$font-path}/Framer-Font/Framer-icon.woff') format('woff'),
+		url('#{$font-path}/Framer-Font/Framer-icon.ttf') format('truetype'),
+		url('#{$font-path}/Framer-Font/Framer-icon.svg#Framer-icon') format('svg');
+}
+
+@mixin fr-styles() {
+	font-family: "Framer-icon";
+	display: inline-block;
+  font-weight: normal;
+	font-variant: normal;
+	font-style: normal;
+  font-size: 14px;
+	line-height: 1;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.fr{
+	@include fr-styles();
+}
+
+.fr-fw{
+	width: 1.28571429em;
+  text-align: center;
+}
+
+
+$unicode-arrow-down: "\E001";
+
+$unicode-arrow-left: "\E002";
+
+$unicode-arrow-right: "\E003";
+
+$unicode-arrow-up: "\E004";
+
+$unicode-bell: "\E005";
+
+$unicode-close: "\E006";
+
+$unicode-cloud-down: "\E007";
+
+$unicode-cloud-up: "\E008";
+
+$unicode-cloud: "\E009";
+
+$unicode-drop: "\E00A";
+
+$unicode-ellipsis-h: "\E00B";
+
+$unicode-ellipsis-v: "\E00C";
+
+$unicode-envelope: "\E00D";
+
+$unicode-grid: "\E00E";
+
+$unicode-list: "\E00F";
+
+$unicode-long-arrow-down: "\E010";
+
+$unicode-long-arrow-left: "\E011";
+
+$unicode-long-arrow-right: "\E012";
+
+$unicode-long-arrow-up: "\E013";
+
+$unicode-marker: "\E014";
+
+$unicode-microphone: "\E015";
+
+$unicode-nav: "\E016";
+
+$unicode-phone: "\E017";
+
+$unicode-search: "\E018";
+
+$unicode-star-half: "\E019";
+
+$unicode-star-o: "\E01A";
+
+$unicode-star: "\E01B";
+
+$unicode-user: "\E01C";
+
+$unicode-whatsapp: "\E01D";
+
+
+
+
+
+
+@function fr-char($filename){
+	$char: "";
+	
+		@if $filename == arrow-down{
+			$char: "\E001";
+		}
+
+	
+		@if $filename == arrow-left{
+			$char: "\E002";
+		}
+
+	
+		@if $filename == arrow-right{
+			$char: "\E003";
+		}
+
+	
+		@if $filename == arrow-up{
+			$char: "\E004";
+		}
+
+	
+		@if $filename == bell{
+			$char: "\E005";
+		}
+
+	
+		@if $filename == close{
+			$char: "\E006";
+		}
+
+	
+		@if $filename == cloud-down{
+			$char: "\E007";
+		}
+
+	
+		@if $filename == cloud-up{
+			$char: "\E008";
+		}
+
+	
+		@if $filename == cloud{
+			$char: "\E009";
+		}
+
+	
+		@if $filename == drop{
+			$char: "\E00A";
+		}
+
+	
+		@if $filename == ellipsis-h{
+			$char: "\E00B";
+		}
+
+	
+		@if $filename == ellipsis-v{
+			$char: "\E00C";
+		}
+
+	
+		@if $filename == envelope{
+			$char: "\E00D";
+		}
+
+	
+		@if $filename == grid{
+			$char: "\E00E";
+		}
+
+	
+		@if $filename == list{
+			$char: "\E00F";
+		}
+
+	
+		@if $filename == long-arrow-down{
+			$char: "\E010";
+		}
+
+	
+		@if $filename == long-arrow-left{
+			$char: "\E011";
+		}
+
+	
+		@if $filename == long-arrow-right{
+			$char: "\E012";
+		}
+
+	
+		@if $filename == long-arrow-up{
+			$char: "\E013";
+		}
+
+	
+		@if $filename == marker{
+			$char: "\E014";
+		}
+
+	
+		@if $filename == microphone{
+			$char: "\E015";
+		}
+
+	
+		@if $filename == nav{
+			$char: "\E016";
+		}
+
+	
+		@if $filename == phone{
+			$char: "\E017";
+		}
+
+	
+		@if $filename == search{
+			$char: "\E018";
+		}
+
+	
+		@if $filename == star-half{
+			$char: "\E019";
+		}
+
+	
+		@if $filename == star-o{
+			$char: "\E01A";
+		}
+
+	
+		@if $filename == star{
+			$char: "\E01B";
+		}
+
+	
+		@if $filename == user{
+			$char: "\E01C";
+		}
+
+	
+		@if $filename == whatsapp{
+			$char: "\E01D";
+		}
+
+	
+	@return $char;
+}
+
+@mixin fr($filename, $insert: before, $extend: true){
+	&::#{$insert}{
+		@if $extend{
+			@extend .fr;
+		}@else {
+			@include fr-styles;
+		}
+		content: fr-char($filename);
+	}
+}
+
+.fr-arrow-down {
+	@include fr(arrow-down);
+}
+.fr-arrow-left {
+	@include fr(arrow-left);
+}
+.fr-arrow-right {
+	@include fr(arrow-right);
+}
+.fr-arrow-up {
+	@include fr(arrow-up);
+}
+.fr-bell {
+	@include fr(bell);
+}
+.fr-close {
+	@include fr(close);
+}
+.fr-cloud-down {
+	@include fr(cloud-down);
+}
+.fr-cloud-up {
+	@include fr(cloud-up);
+}
+.fr-cloud {
+	@include fr(cloud);
+}
+.fr-drop {
+	@include fr(drop);
+}
+.fr-ellipsis-h {
+	@include fr(ellipsis-h);
+}
+.fr-ellipsis-v {
+	@include fr(ellipsis-v);
+}
+.fr-envelope {
+	@include fr(envelope);
+}
+.fr-grid {
+	@include fr(grid);
+}
+.fr-list {
+	@include fr(list);
+}
+.fr-long-arrow-down {
+	@include fr(long-arrow-down);
+}
+.fr-long-arrow-left {
+	@include fr(long-arrow-left);
+}
+.fr-long-arrow-right {
+	@include fr(long-arrow-right);
+}
+.fr-long-arrow-up {
+	@include fr(long-arrow-up);
+}
+.fr-marker {
+	@include fr(marker);
+}
+.fr-microphone {
+	@include fr(microphone);
+}
+.fr-nav {
+	@include fr(nav);
+}
+.fr-phone {
+	@include fr(phone);
+}
+.fr-search {
+	@include fr(search);
+}
+.fr-star-half {
+	@include fr(star-half);
+}
+.fr-star-o {
+	@include fr(star-o);
+}
+.fr-star {
+	@include fr(star);
+}
+.fr-user {
+	@include fr(user);
+}
+.fr-whatsapp {
+	@include fr(whatsapp);
+}
+
+
+
+
+.fr-spin {
+  animation: fr-spin 2s infinite linear;
+}
+
+.fr-pulse {
+  animation: fr-spin 1s infinite steps(8);
+}
+.fr-flash {
+  animation: fr-flash 1s infinite  ease-in-out;
+}
+
+@-webkit-keyframes fr-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes fr-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+
+@-webkit-keyframes fr-flash {
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fr-flash {
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

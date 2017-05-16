@@ -1,0 +1,47 @@
+
+@keyframes progress-bar-stripes
+  0%
+    background-position: 0px 0
+  100%
+    background-position: 40px 0
+
+.progress
+  position: relative
+  display: block
+  overflow: hidden
+  height: $progress__bar__height
+  width: 100%
+  border-radius: $global__radius
+  background: $mute-background
+  border: solid 1px $mute-border
+  box-shadow: inset rgba(#000, 0.15) 0 1px 2px
+
+  &__bar
+    height: 100%
+    width: 0%
+    display: block
+    background: $primary-color
+    border-radius: $global__radius
+    transition: width 0.2s ease-in-out
+    overflow: visible
+
+  &__text
+    position: absolute
+    top: 0
+    left: $padding
+    line-height: $progress__bar__height
+    color: darken($primary-color, 35%) !important
+    text-shadow: lighten($primary-color, 15%) 0 1px 2px !important
+
+
+
+
+  @each $key, $value in $_nofiy_colors
+
+    &--#{$key}
+      .progress__bar
+        background: $value
+
+  &__striped
+    .progress__bar
+      +gradient

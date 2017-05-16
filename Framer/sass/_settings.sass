@@ -1,0 +1,141 @@
+// ==========================================
+// == FRAMER RESPONSIVE GRID
+// == AUTHOR: CLAUDE MYBURGH
+// == URL: http://designbycode.co.za
+// ==========================================
+
+
+// ==========================================
+// == CONFIGURATION VALUES FOR GRID
+// ==========================================
+
+// == Max width for the container row (value in px)
+$grid__max__width: 1140px !default
+
+// == Space between the columns
+$grid__gutter__width: 15px !default
+
+// == Number of columns
+$grid__column__count: 12 !default
+
+$padding: 15px
+
+// ==========================================
+// == BREAKPOINTS VALUES FOR GRID
+// ==========================================
+
+// == Extra Small breakpoint
+$grid__breakpoint__xs: 300px
+// == Mobile breakpoint size (value in px)
+$grid__breakpoint__sm: 480px
+// == Table breakpoint size (value in px)
+$grid__breakpoint__md: 800px
+// == Old CTR Screens breakpoint size (value in px)
+$grid__breakpoint__lg: 960px
+// == Wide Screens breakpoint size (value in px)
+$grid__breakpoint__xl: 1170px
+
+$mobile__view: 800px
+$tablet_view: 960px
+// == if additional breakpoints is created, just add it to the breakpoints map
+
+$_breakpoints : (xs: $grid__breakpoint__xs, sm: $grid__breakpoint__sm, md: $grid__breakpoint__md, lg: $grid__breakpoint__lg, xl: $grid__breakpoint__xl)
+
+
+// ==========================================
+// == Global Styles
+// ==========================================
+
+$global__radius: 3px
+$global__lineheight: 1.48
+$global__font__size: 16px
+
+$font-path: '../fonts'
+// ==========================================
+// == Colors
+// ==========================================
+
+$main-background: #fff
+
+$mute-text: #898989
+$mute-background: #efefef
+$mute-border: #d6d6d6
+
+// Main Colors
+$primary-color: #069
+
+// notifacation colors
+
+$info-color: cornflowerblue
+$warning-color: #fb9a04
+$success-color: #79ad79
+$danger-color: #ff1b02
+
+
+
+// ==========================================
+// == COLOR MAP
+// ==========================================
+
+$_colors: (primary: #069, secondary: coral)
+$_custom_colors: (black: #000, white: #fff, mute: $mute-border)
+
+$_nofiy_colors: (info: $info-color, success: $success-color, warning: $warning-color, danger: $danger-color, )
+
+// Merge Colors
+$_color_set: map-merge($_colors, $_custom_colors)
+$_color_set: map-merge($_color_set, $_nofiy_colors)
+
+
+// ==========================================
+// == Scrollbar
+// ==========================================
+
+$scrollbar__track__background__color: $mute-background
+$scrollbar__thumb__background__color: $primary-color
+$scrollbar__thumb__border__color: $mute-background
+$scrollbar__thumb__border__width: 0px
+$scrollbar__track__width: 8px
+$scrollbar__track__radius: 0px
+$scrollbar__track__border__color: $mute-border
+$scrollbar__track__border__width: 1px
+
+
+
+// ==========================================
+// == Menu Settings
+// ==========================================
+
+$menu__height: 50px
+$menu__padding: 10px
+
+$menu__background__color: $primary-color
+$menu__text__color: #fff
+$menu__link__background_color: $primary-color
+$menu__link__background__color__hover: blue
+$menu__link__text__color: #fff
+$menu__link__text__color__hover: #ddd
+
+// ==========================================
+// == Media Settings
+// ==========================================
+
+$media__image__height__width: 60px
+
+
+// ==========================================
+// == Progress Settings
+// ==========================================
+
+$progress__bar__height: 30px
+
+// ==========================================
+// == Admin Settings
+// ==========================================
+
+$admin__nav__background__text__color: #fff
+$admin__nav__background__color: $primary-color
+
+$admin__sidebar__width: 260px
+$admin__sidebar__background__color: #333
+$admin__sidebar__links__text__color: whitesmoke

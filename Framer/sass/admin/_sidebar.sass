@@ -1,0 +1,103 @@
+
+
+#container
+  position: relative
+  margin-left: $admin__sidebar__width
+  padding-top: 50px
+  width: calc(100% - $admin__sidebar__width)
+  z-index: 1
+  transition: all 0.25s ease
+  +is--tablet
+    width: 100%
+    margin-left: 0
+
+
+.admin
+
+  &__sidebar
+    position: fixed
+    top: 50px
+    bottom: 0
+    left: 0
+    width: $admin__sidebar__width
+    background: #1f242a
+    z-index: 11
+    transition: all 0.25s ease
+
+    +is--tablet
+      left: -$admin__sidebar__width
+
+    &__links
+      padding: 0
+      margin: $padding
+      list-style: none
+
+      li 
+        line-height: 2
+
+      a 
+        color: $admin__sidebar__links__text__color
+        text-decoration: none
+
+
+  &__nav
+    position: fixed
+    transition: all 0.25s ease
+    width: 100%
+    background: $admin__nav__background__color
+    color: $admin__nav__background__text__color
+    left: 0
+    top: 0
+    z-index: 10
+
+    .btn
+      margin-top: 8px
+      margin-left: 15px
+      color: $admin__nav__background__text__color
+
+    &__right
+      width: calc(100% - $admin__sidebar__width)
+      height: 50px
+      display: block
+      float: left
+      +is--mobile
+        width: 100%
+
+    &__brand
+      background: darken($admin__nav__background__color, 5%)
+      float: left
+      display: block
+      width: $admin__sidebar__width
+      height: 50px
+      text-align: left
+      padding-left: $padding
+      line-height: 50px
+      color: $admin__nav__background__text__color
+      font-size: 30px
+      font-weight: 600
+      +is--tablet
+        display: none
+
+      a
+        color: $admin__nav__background__text__color
+        text-decoration: none
+
+
+
+
+.admin__sidebar__close
+
+  #container
+    width: 100%
+    max-width: 100%
+    margin-left: 0
+    overflow-x: hidden
+
+  .admin__sidebar 
+    left: -$admin__sidebar__width
+
+  .admin__nav__brand
+    display: none  
+
+  .admin__nav__right
+    @extend .wrapper  

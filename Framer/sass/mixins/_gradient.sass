@@ -1,0 +1,11 @@
+// ==========================================
+// == FRAMER RESPONSIVE GRID
+// == AUTHOR: CLAUDE MYBURGH
+// == URL: http://designbycode.co.za
+// ==========================================
+
+
+=gradient($color: rgba(#000, 0.2), $animate: true, $angel: 120deg)
+  background-image: repeating-linear-gradient($angel, $color 40px, transparent 80px)
+  @if $animate
+    animation: progress-bar-stripes 2s linear infinite

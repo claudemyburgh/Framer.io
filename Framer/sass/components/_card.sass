@@ -1,0 +1,42 @@
+// ==========================================
+// == FRAMER RESPONSIVE GRID
+// == AUTHOR: CLAUDE MYBURGH
+// == URL: http://designbycode.co.za
+// ==========================================
+
+.card
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  background: #fff
+  min-height: 100%
+  overflow: hidden
+  +radius
+  +shadow
+
+  &__body
+    padding: $padding
+    background: #fff
+
+  &__header
+    padding: $padding
+    background: #fff
+    border-bottom: 1px $mute-border solid
+
+  &__footer
+    padding: $padding
+    border-top: 1px $mute-border solid
+    background: $mute-background
+
+  &__image
+    img
+      max-width: 100%
+
+  @each $key, $value in $_color_set
+
+    &--#{$key}
+      .card__header
+        background: $value
+        color: darken($value, 35%)
+        border: solid 1px darken($value, 15%)
+        text-shadow: lighten($value, 15%) 0 1px 2px

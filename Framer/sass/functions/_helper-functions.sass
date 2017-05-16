@@ -1,0 +1,17 @@
+// ==========================================
+// == FRAMER RESPONSIVE GRID
+// == AUTHOR: CLAUDE MYBURGH
+// == URL: http://designbycode.co.za
+// ==========================================
+
+
+
+// ==========================================
+// == Color - get color from color_set map
+// ==========================================
+@function color($color: $_color_set, $value: primary)
+  @return map-get($_color_set, $value)
+
+
+@function unicode($code)
+  @return map-get($unicode, $code)

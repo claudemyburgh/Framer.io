@@ -1,0 +1,116 @@
+
+@font-face {
+	font-family: "<%= fontName %>";
+	src: url('#{$font-path}/Framer-Font/<%= fontName %>.eot');
+	src: url('#{$font-path}/Framer-Font/<%= fontName %>.eot?#iefix') format('eot'),
+		url('#{$font-path}/Framer-Font/<%= fontName %>.woff') format('woff'),
+		url('#{$font-path}/Framer-Font/<%= fontName %>.ttf') format('truetype'),
+		url('#{$font-path}/Framer-Font/<%= fontName %>.svg#<%= fontName %>') format('svg');
+}
+
+@mixin <%= cssClass%>-styles() {
+	font-family: "<%= fontName %>";
+	display: inline-block;
+  font-weight: normal;
+	font-variant: normal;
+	font-style: normal;
+  font-size: 14px;
+	line-height: 1;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.<%= cssClass%>{
+	@include <%= cssClass%>-styles();
+}
+
+.<%= cssClass%>-fw{
+	width: 1.28571429em;
+  text-align: center;
+}
+
+<% _.each(glyphs, function(glyph) { %>
+$unicode-<%= glyph.fileName %>: "\<%= glyph.codePoint %>";
+<% }); %>
+
+
+
+
+
+@function <%= cssClass%>-char($filename){
+	$char: "";
+	<%_.each(glyphs, function(glyph){ %>
+		@if $filename == <%= glyph.fileName %>{
+			$char: "\<%= glyph.codePoint %>";
+		}
+
+	<%	});%>
+	@return $char;
+}
+
+@mixin <%= cssClass%>($filename, $insert: before, $extend: true){
+	&::#{$insert}{
+		@if $extend{
+			@extend .<%= cssClass%>;
+		}@else {
+			@include <%= cssClass%>-styles;
+		}
+		content: <%= cssClass%>-char($filename);
+	}
+}
+
+<% _.each(glyphs, function(glyph) { %>.<%= cssClass%>-<%= glyph.fileName %> {
+	@include <%= cssClass%>(<%= glyph.fileName %>);
+}
+<% }); %>
+
+
+
+.<%= cssClass%>-spin {
+  animation: fr-spin 2s infinite linear;
+}
+
+.<%= cssClass%>-pulse {
+  animation: fr-spin 1s infinite steps(8);
+}
+.<%= cssClass%>-flash {
+  animation: fr-flash 1s infinite  ease-in-out;
+}
+
+@-webkit-keyframes fr-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes fr-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+
+@-webkit-keyframes fr-flash {
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fr-flash {
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

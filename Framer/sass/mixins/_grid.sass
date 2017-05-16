@@ -1,0 +1,113 @@
+// ==========================================
+// == FRAMER RESPONSIVE GRID
+// == AUTHOR: CLAUDE MYBURGH
+// == URL: http://designbycode.co.za
+// ==========================================
+
+
+
+// ==========================================
+// == MAKE MAIN CONTAINER FOR GRID
+// ==========================================
+
+=makeWrapper($maxWidth: $grid__max__width, $gutter: $grid__gutter__width)
+  position: relative
+  margin: 0 auto
+  min-height: 1px
+  width: 98%
+  max-width: $maxWidth
+  padding:
+    left: $gutter
+    right: $gutter
+
+// ==========================================
+// == MAKE ROW ELEMENTS
+// ==========================================
+=makeRow($gutter: $grid__gutter__width)
+  position: relative
+  margin:
+    left: -$grid__gutter__width
+    right: -$grid__gutter__width
+  +clearfix
+
+// ==========================================
+// == MAKE COLUMNS
+// ==========================================
+
+
+
+%column
+  position: relative
+  display: inline-block
+  float: left
+  width: 100%
+  padding: $grid__gutter__width
+
+
+.col,
+.column
+  @extend %column
+
+=makeColumns($columnCount: $grid__column__count, $gutter: $grid__gutter__width, $map: $_breakpoints)
+  @each $key, $value in $map
+    @for $i from 1 through $grid__column__count
+      .#{$key}-col-#{$i}
+        @extend %column
+
+  @each $key, $value in $map
+
+    +media-up($key)
+      @for $i from 1 through $grid__column__count
+        .#{$key}-col-#{$i}
+          width: (100% / $columnCount) * $i
+
+        // Offset
+        .#{$key}-offset-#{$i}
+          margin-left: (100% / $columnCount) * $i
+
+      // Float on size
+      .#{$key}-float-right
+        float: right
+
+      .#{$key}-float-left
+        float: left
+
+      // Hide & Show on size
+      .#{$key}-hide
+        visibility: hidden
+
+      .#{$key}-show
+        visibility: visible
+
+      .#{$key}-text-align-right
+        text-align: right 
+
+      .#{$key}-text-align-left
+        text-align: left 
+
+      .#{$key}-text-align-center
+        text-align: center 
+
+
+.float-right
+  float: right
+
+.float-left
+  float: left
+
+.hide
+  visibility: hidden
+
+
+.show
+  visibility: visible
+
+
+.text-align-right
+  text-align: right 
+
+.text-align-left
+  text-align: left 
+
+.text-align-center
+  text-align: center 
